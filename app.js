@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import cors from "cors";
+import morgan from "morgan";
 import Connection from "./database/db.js";
 import { userData, productData } from "./DefaultData/default.js";
 import Routes from "./routes/routes.js";
@@ -13,6 +14,7 @@ dotenv.config();
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
+app.use(morgan('dev'))
 app.use("/", Routes);
 
 app.get('/', (req, res) => {
