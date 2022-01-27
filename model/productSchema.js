@@ -6,7 +6,7 @@ const productSchema = new mongoose.Schema({
   title: String,
   description: String,
   category: String,
-  image: String,
+  image: {data:Buffer,contentType: String},
   countInStock:Number,
 });
 
